@@ -1,0 +1,235 @@
+/* 기본 설정 */
+body {
+    font-family: "Nanum Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9; /* 배경색을 약간 회색으로 설정 */
+}
+
+/* 모든 리스트와 링크의 기본 스타일 제거 */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 중앙 정렬 컨테이너 (웹사이트의 폭을 제한하고 가운데로 모아줌) */
+.container {
+    width: 90%;
+    max-width: 1200px; /* 최대 폭 1200px 설정 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 1. 헤더 스타일 */
+#header {
+    background-color: #ffffff; /* 흰색 배경 */
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+#header .container {
+    display: flex; /* 로고와 메뉴를 가로로 배치 */
+    justify-content: space-between; /* 양 끝 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a73e8; /* 브랜드 컬러 (파란색 계열) */
+}
+
+.main-nav ul {
+    display: flex; /* 메뉴 항목 가로 배치 */
+    gap: 30px; /* 메뉴 항목 사이 간격 */
+}
+
+.main-nav a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #0d47a1; /* 마우스 오버 시 색상 변경 */
+}
+
+/* 2. 메인 배너/슬라이드 섹션 스타일 (Hero Section) */
+#hero-section {
+    background-color: #e3f2fd; /* 밝은 하늘색 배경 */
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero-section h2 {
+    font-size: 42px;
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+#hero-section p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: #4caf50; /* 눈에 띄는 녹색 버튼 */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: #388e3c;
+}
+
+/* 3. 서비스 소개 섹션 (임시) */
+#services {
+    padding: 60px 0;
+    text-align: center;
+}
+
+#services h3 {
+    font-size: 30px;
+    color: #0d47a1;
+    margin-bottom: 40px;
+}
+
+/* 4. 푸터 스타일 */
+#footer {
+    background-color: #333; /* 어두운 배경 */
+    color: #fff; /* 흰색 글자 */
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+#footer p {
+    margin: 5px 0;
+}
+
+.copyright {
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+/* 3.1 서비스 카드 섹션 스타일 추가 */
+.service-cards {
+    display: flex; /* 카드들을 가로로 나열 */
+    justify-content: space-between; /* 카드 사이의 공간을 균등하게 분배 */
+    gap: 30px;
+    text-align: center;
+}
+
+.service-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+    flex: 1; /* 카드 3개가 균일한 너비를 가지도록 설정 */
+    min-width: 300px; /* 카드의 최소 너비 설정 */
+}
+
+.service-card .icon {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 15px;
+    color: #555;
+}
+
+/* 4.1 갤러리 섹션 스타일 */
+#gallery {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #ffffff; /* 흰색 배경 */
+}
+
+#gallery h3 {
+    font-size: 30px;
+    color: #1a73e8;
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* 4개의 이미지를 가로로 4등분 배치 */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden; /* 이미지가 박스 밖으로 나가지 않도록 처리 */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%; /* 부모 요소 너비에 맞춤 */
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* 마우스 올리면 확대 효과 */
+}
+
+
+/* 4.2 오시는 길 섹션 스타일 */
+#location {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f9f9f9; /* 배경색을 서비스 섹션과 대비되게 설정 */
+}
+
+#location h3 {
+    font-size: 30px;
+    color: #1a73e8;
+    margin-bottom: 30px;
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 350px; /* 지도의 높이 지정 */
+    background-color: #ccc; /* 임시 지도 배경색 */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    border-radius: 8px;
+}
+
+.contact-info {
+    font-size: 18px;
+    font-weight: normal;
+    color: #333;
+    margin-top: 15px;
+}
+
+.contact-info strong {
+    color: #c62828; /* 연락처 강조 */
+    font-weight: bold;
+    font-size: 20px;
+}
