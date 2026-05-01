@@ -3,12 +3,12 @@ import type { AboutOverview } from "@/types/home";
 import { collections, getDocumentRecord, readArray, readString } from "@/lib/firestore";
 
 const fallbackAboutOverview: AboutOverview = {
-  title: "Trusted daily living support",
-  description: "Experienced staff and structured care programs support a stable daily routine.",
+  title: "30년 경력의 전문 요양 시설",
+  description:
+    "어르신 한 분 한 분을 가족처럼 모십니다. 숙련된 요양보호사와 의료진이 24시간 함께합니다.",
   stats: [
-    { label: "Care team", value: "24/7 on site" },
-    { label: "Daily support", value: "Personalized plans" },
-    { label: "Family updates", value: "Regular reports" },
+    { label: "입소 정원", value: "200+" },
+    { label: "전문 케어", value: "24시간" },
   ],
 };
 

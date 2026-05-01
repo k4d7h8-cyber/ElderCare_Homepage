@@ -3,12 +3,12 @@ import type { SiteConfig } from "@/types/home";
 import { collections, getDocumentRecord, readString } from "@/lib/firestore";
 
 const fallbackSiteConfig: SiteConfig = {
-  siteName: "Eldercare Home",
-  siteDescription: "Starter site settings for an eldercare homepage.",
-  phone: "02-0000-0000",
+  siteName: "편안한 요양원",
+  siteDescription: "어르신의 편안한 일상을 함께합니다.",
+  phone: "000-0000-0000",
   email: "hello@eldercare-homepage.com",
-  address: "100 Teheran-ro, Gangnam-gu, Seoul",
-  consultationHours: "Mon-Fri 09:00-18:00",
+  address: "○○시 ○○구 ○○로 123",
+  consultationHours: "평일 09:00-18:00",
 };
 
 export async function getSiteConfig(): Promise<SiteConfig> {
