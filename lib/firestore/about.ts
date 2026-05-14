@@ -6,9 +6,9 @@ import { collections, getDocumentRecord, readArray, readString } from "@/lib/fir
 const fallbackAboutOverview: AboutOverview = {
   title: "30년 경력의 전문 요양 시설",
   description:
-    "어르신 한 분 한 분을 가족처럼 모십니다. 숙련된 요양보호사와 의료진이 24시간 함께합니다.",
+    "어르신 한 분 한 분을 가족처럼 모십니다. 숙련된 간호사와 요양보호사가 24시간 함께합니다.",
   stats: [
-    { label: "입소 정원", value: "200+" },
+    { label: "입소 정원", value: "29명" },
     { label: "전문 케어", value: "24시간" },
   ],
 };
