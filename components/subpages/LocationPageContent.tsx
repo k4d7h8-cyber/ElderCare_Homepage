@@ -1,4 +1,5 @@
 import type { LocationPageContent as LocationPageContentType } from "@/types/subpage";
+import { NaverMap } from "@/components/location/NaverMap";
 
 type LocationPageContentProps = {
   data: LocationPageContentType;
@@ -22,21 +23,7 @@ export function LocationPageContent({ data }: LocationPageContentProps) {
         <p className="text-sm font-bold uppercase tracking-widest text-primary">Map</p>
         <h2 className="mt-3 text-2xl font-bold text-textMain">지도</h2>
         <div className="mt-5 overflow-hidden rounded-2xl border border-slate-100 bg-surface">
-          {data.mapEmbedUrl ? (
-            <iframe
-              src={data.mapEmbedUrl}
-              title="카카오맵"
-              className="h-80 w-full border-0 md:h-96"
-              loading="lazy"
-            />
-          ) : (
-            <iframe
-              src=""
-              title="카카오맵"
-              className="h-80 w-full border-0 md:h-96"
-              loading="lazy"
-            />
-          )}
+          <NaverMap />
         </div>
       </section>
 
