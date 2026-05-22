@@ -42,8 +42,10 @@ const CENTER = {
 };
 
 export default function NaverMap() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const [hasError, setHasError] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const clientId = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID;
@@ -106,6 +108,35 @@ export default function NaverMap() {
     document.head.appendChild(script);
   }, []);
 
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(document.fullscreenElement === wrapperRef.current);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    };
+  }, []);
+
+  const handleFullscreenToggle = async () => {
+    if (!wrapperRef.current) {
+      return;
+    }
+
+    try {
+      if (document.fullscreenElement === wrapperRef.current) {
+        await document.exitFullscreen();
+        return;
+      }
+
+      await wrapperRef.current.requestFullscreen();
+    } catch (error) {
+      console.error("Failed to toggle fullscreen mode.", error);
+    }
+  };
+
   if (hasError) {
     return (
       <div
@@ -117,5 +148,17 @@ export default function NaverMap() {
     );
   }
 
-  return <div ref={mapRef} className="w-full" style={{ height: "450px" }} />;
+  return (
+    <div ref={wrapperRef} className="relative w-full bg-surface" style={{ height: "450px" }}>
+      <div ref={mapRef} className="h-full w-full" />
+      <button
+        type="button"
+        aria-label={isFullscreen ? "전체화면 종료" : "전체화면 보기"}
+        onClick={handleFullscreenToggle}
+        className="absolute right-3 top-3 z-[1000] flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl font-bold leading-none text-textMain shadow-lg transition hover:bg-slate-50"
+      >
+        {isFullscreen ? "×" : "⤢"}
+      </button>
+    </div>
+  );
 }
