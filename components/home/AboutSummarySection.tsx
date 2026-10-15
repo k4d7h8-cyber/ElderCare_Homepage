@@ -10,9 +10,9 @@ export function AboutSummarySection({ about }: AboutSummarySectionProps) {
   const stats = about.stats.slice(0, 2);
 
   return (
-    <section id="about" className="border-t border-slate-200 bg-white px-4 py-14">
+    <section id="about" className="scroll-mt-28 border-t border-slate-200 bg-white px-4 py-14">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm font-semibold text-textSub">기관 소개</p>
+        <p className="text-sm font-semibold text-textSub">요양원 소개</p>
         <h2 className="mt-3 text-2xl font-bold text-textMain md:text-3xl">{about.title}</h2>
         <p className="mt-4 max-w-4xl leading-relaxed text-textSub">{about.description}</p>
 
@@ -25,7 +25,7 @@ export function AboutSummarySection({ about }: AboutSummarySectionProps) {
           ))}
         </div>
 
-        <ButtonLink href="#about" variant="outline" className="mt-8">
+        <ButtonLink href="/about" variant="outline" className="mt-8">
           자세히 보기
         </ButtonLink>
       </div>

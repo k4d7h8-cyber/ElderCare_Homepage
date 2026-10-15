@@ -19,7 +19,7 @@ export function ServicesPageContent({ services }: ServicesPageContentProps) {
           <article
             id={service.id}
             key={service.id}
-            className="group overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
+            className="group scroll-mt-28 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
           >
             <div className="relative aspect-[16/9] bg-surface">
               {service.imageUrl ? (

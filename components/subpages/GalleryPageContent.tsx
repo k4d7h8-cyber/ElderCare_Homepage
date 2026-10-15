@@ -12,27 +12,26 @@ type GalleryPageContentProps = {
 
 const categories: Array<{
   id: GalleryCategory;
+  sourceCategory: GalleryCategory;
   title: string;
   description: string;
 }> = [
   {
     id: "daily",
-    title: "함께하는 일상",
-    description: "생활 모습 사진",
-  },
-  {
-    id: "program",
+    sourceCategory: "program",
     title: "신나는 프로그램",
     description: "프로그램 활동 사진",
   },
   {
     id: "event",
+    sourceCategory: "event",
     title: "특별한 날들",
     description: "생신잔치, 행사, 명절 등",
   },
   {
     id: "facility",
-    title: "우리의 보금자리",
+    sourceCategory: "facility",
+    title: "시설 사진",
     description: "시설 사진, 생활 공간, 프로그램실, 외부 전경",
   },
 ];
@@ -44,7 +43,7 @@ export function GalleryPageContent({ items }: GalleryPageContentProps) {
     () =>
       categories.map((category) => ({
         ...category,
-        items: items.filter((item) => item.category === category.id),
+        items: items.filter((item) => item.category === category.sourceCategory),
       })),
     [items],
   );

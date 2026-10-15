@@ -80,7 +80,7 @@ export function ContactCTASection({ siteConfig }: ContactCTASectionProps) {
   };
 
   return (
-    <section id="contact-cta" className="border-t border-slate-200 bg-surface px-4 py-12">
+    <section id="contact-cta" className="scroll-mt-28 border-t border-slate-200 bg-surface px-4 py-12">
       <div className="mx-auto max-w-6xl">
         {mode === "cards" ? (
           <>

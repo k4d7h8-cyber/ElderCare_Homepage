@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import { Header } from "@/components/common/Header";
 import { NoticeBanner } from "@/components/common/NoticeBanner";
 import { SubPageLayout } from "@/components/common/SubPageLayout";
+import { ContactCTASection } from "@/components/home/ContactCTASection";
 import NaverMap from "@/components/location/NaverMap";
 import { getLocationPageData } from "@/lib/firestore/location";
 import { getTopBannerNotice } from "@/lib/firestore/notices";
+import { getSiteConfig } from "@/lib/firestore/siteConfig";
 import type { SubPageNavItem } from "@/types/subpage";
 
 export const revalidate = 300;
@@ -13,20 +15,19 @@ export const revalidate = 300;
 export function generateMetadata(): Metadata {
   return {
     title: "오시는 길 | 안안 요양원",
-    description: "요양원 주소, 지도와 주차 안내를 확인하세요.",
+    description: "요양원 주소와 지도를 확인하세요.",
   };
 }
 
 const navItems: SubPageNavItem[] = [
-  { label: "주소", targetId: "address" },
   { label: "지도", targetId: "map" },
-  { label: "주차 안내", targetId: "parking" },
 ];
 
 export default async function LocationPage() {
-  const [notice, location] = await Promise.all([
+  const [notice, location, siteConfig] = await Promise.all([
     getTopBannerNotice(),
     getLocationPageData(),
+    getSiteConfig(),
   ]);
 
   return (
@@ -36,7 +37,7 @@ export default async function LocationPage() {
       <SubPageLayout
         label="Location"
         title="오시는 길"
-        description="방문 전 주소와 주차 안내를 확인해주세요."
+        description="방문 전 주소와 지도를 확인해주세요."
         navItems={navItems}
       >
         <>
@@ -59,15 +60,9 @@ export default async function LocationPage() {
             </div>
           </section>
 
-          <section id="parking" className="scroll-mt-28 rounded-2xl bg-white p-6 shadow-sm md:p-8">
-            <p className="text-sm font-bold uppercase tracking-widest text-primary">Parking</p>
-            <h2 className="mt-3 text-2xl font-bold text-textMain">주차 안내</h2>
-            <p className="mt-5 rounded-2xl bg-surface p-5 text-sm leading-6 text-textSub">
-              {location.parking}
-            </p>
-          </section>
         </>
       </SubPageLayout>
+      <ContactCTASection siteConfig={siteConfig} />
     </main>
   );
 }

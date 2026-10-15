@@ -8,9 +8,9 @@ type AdmissionSummarySectionProps = {
 
 export function AdmissionSummarySection({ admission }: AdmissionSummarySectionProps) {
   return (
-    <section id="admission" className="border-t border-slate-200 bg-white px-4 py-14">
+    <section id="admission" className="scroll-mt-28 border-t border-slate-200 bg-white px-4 py-14">
       <div className="mx-auto max-w-6xl">
-        <p className="text-sm font-semibold text-textSub">입소안내</p>
+        <p className="text-sm font-semibold text-textSub">입소 안내</p>
 
         <div className="mt-5 space-y-3">
           {admission.steps.slice(0, 4).map((step, index) => (
@@ -27,7 +27,7 @@ export function AdmissionSummarySection({ admission }: AdmissionSummarySectionPr
 
         <p className="mt-6 text-sm text-textSub">{admission.description}</p>
 
-        <ButtonLink href="#admission" variant="outline" className="mt-8">
+        <ButtonLink href="/admission" variant="outline" className="mt-8">
           입소 절차 자세히
         </ButtonLink>
       </div>

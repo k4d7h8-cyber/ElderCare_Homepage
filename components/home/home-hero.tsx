@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import type { HomePageData } from "@/types/home";
 
 type HomeHeroProps = {
@@ -14,12 +16,18 @@ export function HomeHero({ data }: HomeHeroProps) {
         {data.hero.description}
       </p>
       <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center">
-        <button className="rounded-full bg-primary/10 px-8 py-3 font-medium text-primary transition hover:bg-primary/20">
+        <Link
+          href="#contact-cta"
+          className="rounded-full bg-primary/10 px-8 py-3 font-medium text-primary transition hover:bg-primary/20"
+        >
           {data.hero.primaryActionLabel}
-        </button>
-        <button className="rounded-full border border-slate-300 bg-white px-8 py-3 font-medium text-textMain transition hover:border-primary/50 hover:text-primary">
+        </Link>
+        <Link
+          href="/gallery#facility"
+          className="rounded-full border border-slate-300 bg-white px-8 py-3 font-medium text-textMain transition hover:border-primary/50 hover:text-primary"
+        >
           {data.hero.secondaryActionLabel}
-        </button>
+        </Link>
       </div>
     </section>
   );

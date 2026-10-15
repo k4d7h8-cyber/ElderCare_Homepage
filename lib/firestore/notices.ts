@@ -73,7 +73,7 @@ const fallbackNoticesPageData: NoticeDetail[] = [
     isVisible: true,
     content:
       "미술, 음악, 산책 활동을 중심으로 봄맞이 프로그램을 운영합니다. 프로그램 사진은 포토 앨범에서 순차적으로 확인하실 수 있습니다.",
-    attachments: [{ name: "프로그램 안내문.pdf", url: "#" }],
+    attachments: [],
     previousId: "notice-1",
     nextId: "notice-3",
   },
@@ -143,7 +143,7 @@ export async function getNoticeDetailData(id: string): Promise<NoticeDetail | nu
     const snapshot = await getDoc(doc(collections.notices, id));
 
     if (!snapshot.exists()) {
-      return fallbackNoticesPageData.find((notice) => notice.id === id) ?? fallbackNoticesPageData[0] ?? null;
+      return fallbackNoticesPageData.find((notice) => notice.id === id) ?? null;
     }
 
     const data = snapshot.data();
@@ -172,6 +172,6 @@ export async function getNoticeDetailData(id: string): Promise<NoticeDetail | nu
       nextId: readString(data.nextId) || undefined,
     };
   } catch {
-    return fallbackNoticesPageData.find((notice) => notice.id === id) ?? fallbackNoticesPageData[0] ?? null;
+    return fallbackNoticesPageData.find((notice) => notice.id === id) ?? null;
   }
 }

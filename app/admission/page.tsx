@@ -14,7 +14,7 @@ export const revalidate = 300;
 
 export function generateMetadata(): Metadata {
   return {
-    title: "입소안내 | 안안 요양원",
+    title: "입소 안내 | 안안 요양원",
     description: "입소 대상, 입소 절차, 준비 서류와 비용 안내를 확인하세요.",
   };
 }
@@ -39,7 +39,7 @@ export default async function AdmissionPage() {
       <Header />
       <SubPageLayout
         label="Admission"
-        title="입소안내"
+        title="입소 안내"
         description="입소 상담부터 서류 준비, 비용 안내까지 보호자께 필요한 정보를 차근차근 안내합니다."
         navItems={navItems}
       >

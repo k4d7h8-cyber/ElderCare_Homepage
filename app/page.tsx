@@ -66,7 +66,9 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen">
-      <NoticeBanner notice={notice} />
+      <div id="notices" className="scroll-mt-28">
+        <NoticeBanner notice={notice} />
+      </div>
       <Header />
       <HomeHero data={homeData} />
       <AboutSummarySection about={about} />

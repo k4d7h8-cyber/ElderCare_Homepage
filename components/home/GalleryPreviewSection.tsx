@@ -10,7 +10,7 @@ type GalleryPreviewSectionProps = {
 
 export function GalleryPreviewSection({ galleryItems }: GalleryPreviewSectionProps) {
   return (
-    <section id="gallery" className="border-t border-slate-200 bg-white px-4 py-14">
+    <section id="gallery" className="scroll-mt-28 border-t border-slate-200 bg-white px-4 py-14">
       <div className="mx-auto max-w-6xl">
         <p className="text-sm font-semibold text-textSub">요양원 일상·갤러리</p>
         <h2 className="mt-3 text-2xl font-bold text-textMain md:text-3xl">
@@ -39,7 +39,7 @@ export function GalleryPreviewSection({ galleryItems }: GalleryPreviewSectionPro
           ))}
         </div>
 
-        <ButtonLink href="#gallery" variant="outline" className="mt-8">
+        <ButtonLink href="/gallery" variant="outline" className="mt-8">
           전체 갤러리
         </ButtonLink>
       </div>

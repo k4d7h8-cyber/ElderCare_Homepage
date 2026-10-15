@@ -14,16 +14,15 @@ export const revalidate = 300;
 
 export function generateMetadata(): Metadata {
   return {
-    title: "포토 앨범 | 안안 요양원",
+    title: "갤러리 | 안안 요양원",
     description: "함께하는 일상, 프로그램, 행사와 시설 사진을 확인하세요.",
   };
 }
 
 const navItems: SubPageNavItem[] = [
-  { label: "함께하는 일상", targetId: "daily" },
-  { label: "신나는 프로그램", targetId: "program" },
+  { label: "신나는 프로그램", targetId: "daily" },
   { label: "특별한 날들", targetId: "event" },
-  { label: "우리의 보금자리", targetId: "facility" },
+  { label: "시설 사진", targetId: "facility" },
 ];
 
 export default async function GalleryPage() {
@@ -39,7 +38,7 @@ export default async function GalleryPage() {
       <Header />
       <SubPageLayout
         label="Gallery"
-        title="포토 앨범"
+        title="갤러리"
         description="어르신의 일상과 프로그램, 특별한 날의 기록을 사진으로 전합니다."
         navItems={navItems}
       >
